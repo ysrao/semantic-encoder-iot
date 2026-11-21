@@ -72,11 +72,11 @@ import torch
 import torch.nn as nn
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-BASE = os.path.dirname(HERE)                       # semantic_encoder/
-ROOT = os.path.dirname(BASE)                       # edge-apps-prep/
-SRC = os.path.join(ROOT, "semantic_traces_src", "src")
+BASE = os.path.dirname(HERE)                       # flood_india/
+ROOT = os.path.dirname(BASE)                       # repository root
+SRC = os.path.join(ROOT, "companion_traces", "src")  # ntn_eval package
 sys.path.insert(0, SRC)
-sys.path.insert(0, BASE)
+sys.path.insert(0, os.path.join(ROOT, "flood_synthetic"))  # SemanticEncoder
 
 from ntn_eval import stage3                        # noqa: E402
 from semantic_encoder import SemanticEncoder, INPUT_DIM, LATENT_DIM  # noqa: E402

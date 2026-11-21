@@ -10,18 +10,18 @@ import sys
 import numpy as np
 import torch
 
-BASE = "/home/hatch/workspace/edge-apps-prep"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repository root
 HERE = os.path.join(BASE, "litert_check")
-sys.path.insert(0, os.path.join(BASE, "semantic_encoder"))
+sys.path.insert(0, os.path.join(BASE, "flood_synthetic"))
 from semantic_encoder import SemanticEncoder  # noqa: E402
 
 import litert_torch  # noqa: E402  (Google's converter; ai-edge-torch is its deprecated former name)
 
 APPS = {
-    "india": f"{BASE}/semantic_encoder/india/semantic_encoder_india_trained.pt",
-    "outage": f"{BASE}/outage_sim/semantic_encoder_outage_trained.pt",
-    "metering": f"{BASE}/metering_sim/semantic_encoder_metering_trained.pt",
-    "parking": f"{BASE}/parking_sim/semantic_encoder_parking_trained.pt",
+    "india": f"{BASE}/flood_india/india/semantic_encoder_india_trained.pt",
+    "outage": f"{BASE}/outage/semantic_encoder_outage_trained.pt",
+    "metering": f"{BASE}/metering/semantic_encoder_metering_trained.pt",
+    "parking": f"{BASE}/parking/semantic_encoder_parking_trained.pt",
 }
 
 for app, pt_path in APPS.items():

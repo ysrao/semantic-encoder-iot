@@ -47,7 +47,7 @@ import torch.nn as nn
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.dirname(HERE)
-SRC = os.path.join(BASE, "semantic_traces_src", "src")
+SRC = os.path.join(BASE, "companion_traces", "src")      # the companion study's ntn_eval package
 sys.path.insert(0, SRC)
 sys.path.insert(0, HERE)
 
@@ -182,6 +182,9 @@ def main():
     Xtr, ytr, _rtr, ttr, ctr = build_split(TRAIN_SEEDS, agri_cfg, env_cfg)
     Xva, yva, rva, tva, cva = build_split(VAL_SEEDS, agri_cfg, env_cfg)
     Xte, yte, rte, tte, cte = build_split(TEST_SEEDS, agri_cfg, env_cfg)
+    # saved for extras/robustness.py (identical windows)
+    np.savez_compressed(os.path.join(HERE, "dataset_flood_syn.npz"), Xtr=Xtr, ytr=ytr,
+                        Xva=Xva, yva=yva, Xte=Xte, yte=yte, rte=rte)
     print(f"train {len(ytr)} (pos {ytr.sum()}), val {len(yva)} (pos {yva.sum()}), "
           f"test {len(yte)} (pos {yte.sum()})", flush=True)
 
@@ -303,7 +306,7 @@ def main():
             "Study repo's own trace generators used as-is "
             "(ntn_eval.traces.gen_agri_trace / gen_env_trace, repo configs). "
             "Cloned from https://github.com/ysrao/semantic-miot-ntn into "
-            "semantic_traces_src/. Only environment change: pandas 2.2.3 "
+            "companion_traces/. Only environment change: pandas 2.2.3 "
             "installed into ~/v2env (shipped pandas was binary-incompatible "
             "with venv numpy 2.5.3); study code untouched."),
         "data_nature": "Seeded SYNTHETIC simulation traces from the study — not field data.",

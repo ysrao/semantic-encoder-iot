@@ -5,7 +5,7 @@ import csv, glob, os, re, json
 import openpyxl
 from datetime import datetime, timedelta
 
-BASE = os.path.expanduser("~/workspace/edge-apps-prep/semantic_encoder/india/raw")
+BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "raw")   # GUARDIAN + INDOFLOODS downloads (not mirrored)
 WSE_DIR = os.path.join(BASE, "guardian/data/wse")
 
 def norm(s):

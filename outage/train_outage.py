@@ -13,7 +13,7 @@ in architecture, training recipe, rule baseline and scoring discipline:
     threshold swept on validation.
   * SAME rule-baseline family: the study's own stage3.rule_below
     (threshold + persistence + hysteresis + causal smoothing), imported
-    as-is from ../semantic_traces_src — causal, same information.
+    as-is from ../companion_traces — causal, same information.
   * Splits by trace seed, never random interleaving.
 
 DATA: fully SYNTHETIC feeder traces generated here (no field data).
@@ -56,9 +56,9 @@ import torch.nn as nn
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.dirname(HERE)
-SRC = os.path.join(BASE, "semantic_traces_src", "src")
+SRC = os.path.join(BASE, "companion_traces", "src")      # the companion study's ntn_eval package
 sys.path.insert(0, SRC)
-sys.path.insert(0, os.path.join(BASE, "semantic_encoder"))
+sys.path.insert(0, os.path.join(BASE, "flood_synthetic"))  # SemanticEncoder
 
 from ntn_eval import stage3                              # noqa: E402
 from semantic_encoder import SemanticEncoder, INPUT_DIM, LATENT_DIM  # noqa: E402

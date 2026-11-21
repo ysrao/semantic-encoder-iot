@@ -1,19 +1,11 @@
 """Semantic-communications on-device encoder — REFERENCE IMPLEMENTATION.
 
-Status: reference build, NOT a trained model from the semantic-mIoT-NTN study.
-  The underlying work (github.com/ysrao/semantic-miot-ntn, duplicated as
-  ysrao/ntn-eval) is a trace-driven simulation in numpy/pandas whose
-  device-side semantic function is a DETERMINISTIC RULE — threshold +
-  persistence + hysteresis + causal smoothing (schemes.py run_semantic_agri /
-  run_semantic_env, stage3.rule_below / rule_above) emitting a compact task
-  report (20-byte application payload vs 200 raw). There is no neural encoder
-  and no weights in that work; see ../INVENTORY.md.
-  The concept note (17 Nov 2026), section 2, specifies the deployed form of
-  that function as "a small neural network on the sensor, the meter, or the
-  handset". This module implements that deployed form's architecture.
-  Weights are randomly initialised (seeded) and UNTRAINED; training the
-  encoder to reproduce/extend the rule's behaviour on the study's traces is
-  future work.
+Status: the encoder architecture shared by every study in this repository.
+  Each task folder trains it jointly with its gateway decoder (train_*.py) and
+  saves the trained weights there; this module itself holds no weights. The
+  companion study (github.com/ysrao/semantic-miot-ntn) uses a deterministic
+  rule as its device-side encoder; that rule is the reference reported
+  alongside the learned pair (companion_traces/src/ntn_eval/stage3.py).
 
 What it does (per the concept note):
   The encoder runs on-device and transmits only the semantic content the task
