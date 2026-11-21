@@ -1,0 +1,103 @@
+generating synthetic household water traces...
+train 10770 (pos 1146), val 2872 (pos 625), test 7180 (pos 1459)
+train events {'shower': 196, 'tap': 746, 'toilet': 470, 'irrigation': 22, 'tank_fill': 22, 'laundry': 177, 'leak': 17, 'bath': 13, 'dishwasher': 214}
+test events {'shower': 134, 'tap': 473, 'toilet': 282, 'laundry': 158, 'dishwasher': 106, 'irrigation': 18, 'tank_fill': 13, 'leak': 21, 'bath': 12}
+encoder params 4496, decoder params 4601
+/home/hatch/workspace/edge-apps-prep/metering_sim/train_metering.py:436: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  tot += float(loss) * len(idx)
+epoch 0: loss 1.3475 val_f1 0.4235 @thr 0.50
+epoch 1: loss 1.2077 val_f1 0.4641 @thr 0.45
+epoch 2: loss 1.0392 val_f1 0.4886 @thr 0.60
+epoch 3: loss 0.9805 val_f1 0.4829 @thr 0.55
+epoch 4: loss 0.8993 val_f1 0.6152 @thr 0.50
+epoch 5: loss 0.6834 val_f1 0.6815 @thr 0.35
+epoch 6: loss 0.6154 val_f1 0.6357 @thr 0.05
+epoch 7: loss 0.4818 val_f1 0.6274 @thr 0.05
+epoch 8: loss 0.4691 val_f1 0.6244 @thr 0.05
+epoch 9: loss 0.4605 val_f1 0.6582 @thr 0.15
+epoch 10: loss 0.5337 val_f1 0.6074 @thr 0.25
+epoch 11: loss 0.4557 val_f1 0.6671 @thr 0.05
+epoch 12: loss 0.4405 val_f1 0.6667 @thr 0.05
+epoch 13: loss 0.4374 val_f1 0.6724 @thr 0.05
+early stop
+best val F1 0.6815 @ threshold 0.35
+{
+  "nn_pair": {
+    "accuracy": 0.7965,
+    "precision": 0.4997,
+    "recall": 0.9918,
+    "f1": 0.6645,
+    "tp": 1447,
+    "tn": 4272,
+    "fp": 1449,
+    "fn": 12,
+    "n": 7180,
+    "positives": 1459
+  },
+  "nn_pair_noisy_latent": {
+    "accuracy": 0.7975,
+    "precision": 0.5009,
+    "recall": 0.9918,
+    "f1": 0.6656,
+    "tp": 1447,
+    "tn": 4279,
+    "fp": 1442,
+    "fn": 12,
+    "n": 7180,
+    "positives": 1459
+  },
+  "rule_based": {
+    "accuracy": 0.9475,
+    "precision": 0.8892,
+    "recall": 0.8472,
+    "f1": 0.8677,
+    "tp": 1236,
+    "tn": 5567,
+    "fp": 154,
+    "fn": 223,
+    "n": 7180,
+    "positives": 1459
+  }
+}
+{
+  "nn_pair": {
+    "gt_episodes": 21,
+    "detected": 21,
+    "missed": 0,
+    "false_alarm_episodes": 333,
+    "median_detection_delay_min": 6.0
+  },
+  "rule_based": {
+    "gt_episodes": 21,
+    "detected": 21,
+    "missed": 0,
+    "false_alarm_episodes": 27,
+    "median_detection_delay_min": 93.0
+  }
+}
+recon MSE (test): 0.92541
+bytes/day {'windows_per_day': 180, 'raw_window_stream': 46080, 'nn_latent_stream': 1440, 'rule_report_event_triggered': 18.5, 'rule_episodes_per_day_test': 0.925}
+encoder fp32 weights 17984 B, int8 weights 4496 B, CPU single-window 0.067 ms, batched 3.60 us/window
+/home/hatch/v2env/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/hatch/v2env/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/hatch/workspace/edge-apps-prep/metering_sim/train_metering.py:536: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+  torch.onnx.export(enc, example, onnx_path, opset_version=14,
+W1121 17:34:01.683000 10258 torch/onnx/_internal/exporter/_compat.py:133] Setting ONNX exporter to use operator set version 18 because the requested opset_version 14 is a lower version than we have implementations for. Automatic version conversion will be performed, which may not be successful at converting to the requested version. If version conversion is unsuccessful, the opset version of the exported model will be kept at 18. Please consider setting opset_version >=18 to leverage latest ONNX features
+W1121 17:34:02.521000 10258 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::nms
+W1121 17:34:02.522000 10258 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::roi_align
+W1121 17:34:02.522000 10258 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::roi_pool
+W1121 17:34:02.522000 10258 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::deform_conv2d
+The model version conversion is not supported by the onnxscript version converter and fallback is enabled. The model will be converted using the onnx C API (target version: 14).
+[torch.onnx] Obtain model graph for `SemanticEncoder([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `SemanticEncoder([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... ✅
+artifact sizes {'/home/hatch/workspace/edge-apps-prep/metering_sim/semantic_encoder_metering_trained.pt': 30495, '/home/hatch/workspace/edge-apps-prep/metering_sim/gateway_decoder_metering_trained.pt': 33350, '/home/hatch/workspace/edge-apps-prep/metering_sim/semantic_encoder_metering_trained.onnx': 1730}
+DONE in 14.5s

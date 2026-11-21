@@ -1,0 +1,182 @@
+building datasets from study generators...
+train 56134 (pos 7656), val 8636 (pos 1435), test 21590 (pos 2670)
+encoder params 4496, decoder params 4601
+/home/hatch/workspace/edge-apps-prep/semantic_encoder/train_semantic.py:231: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  tot += float(loss) * len(idx)
+epoch 0: loss 0.6544 val_f1 0.8855 @thr 0.70
+epoch 1: loss 0.1510 val_f1 0.9667 @thr 0.45
+epoch 2: loss 0.0891 val_f1 0.9699 @thr 0.90
+epoch 3: loss 0.0698 val_f1 0.9672 @thr 0.90
+epoch 4: loss 0.0667 val_f1 0.9603 @thr 0.90
+epoch 5: loss 0.0694 val_f1 0.9672 @thr 0.85
+epoch 6: loss 0.0608 val_f1 0.9643 @thr 0.95
+epoch 7: loss 0.0629 val_f1 0.9617 @thr 0.95
+epoch 8: loss 0.0572 val_f1 0.9653 @thr 0.85
+epoch 9: loss 0.0589 val_f1 0.9705 @thr 0.85
+epoch 10: loss 0.0558 val_f1 0.9659 @thr 0.95
+epoch 11: loss 0.0635 val_f1 0.9663 @thr 0.90
+epoch 12: loss 0.0518 val_f1 0.9670 @thr 0.95
+epoch 13: loss 0.0589 val_f1 0.9688 @thr 0.90
+epoch 14: loss 0.0546 val_f1 0.9704 @thr 0.80
+epoch 15: loss 0.0635 val_f1 0.9704 @thr 0.55
+epoch 16: loss 0.0538 val_f1 0.9669 @thr 0.70
+epoch 17: loss 0.0538 val_f1 0.9709 @thr 0.65
+epoch 18: loss 0.0517 val_f1 0.9685 @thr 0.85
+epoch 19: loss 0.0504 val_f1 0.9676 @thr 0.75
+epoch 20: loss 0.0551 val_f1 0.9704 @thr 0.75
+epoch 21: loss 0.0529 val_f1 0.9714 @thr 0.70
+epoch 22: loss 0.0515 val_f1 0.9663 @thr 0.90
+epoch 23: loss 0.0519 val_f1 0.9698 @thr 0.95
+epoch 24: loss 0.0556 val_f1 0.9694 @thr 0.80
+epoch 25: loss 0.0520 val_f1 0.9699 @thr 0.85
+epoch 26: loss 0.0511 val_f1 0.9706 @thr 0.90
+epoch 27: loss 0.0527 val_f1 0.9681 @thr 0.95
+epoch 28: loss 0.0575 val_f1 0.9596 @thr 0.95
+epoch 29: loss 0.0505 val_f1 0.9694 @thr 0.90
+early stop
+best val F1 0.9714 @ threshold 0.7
+combined {"nn_pair": {"accuracy": 0.992, "precision": 0.9619, "recall": 0.9742, "f1": 0.968, "tp": 2601, "tn": 18817, "fp": 103, "fn": 69, "n": 21590, "positives": 2670}, "nn_pair_noisy_latent": {"accuracy": 0.9923, "precision": 0.9637, "recall": 0.9742, "f1": 0.9689, "tp": 2601, "tn": 18822, "fp": 98, "fn": 69, "n": 21590, "positives": 2670}, "rule_based": {"accuracy": 0.9914, "precision": 0.9442, "recall": 0.9891, "f1": 0.9662, "tp": 2641, "tn": 18764, "fp": 156, "fn": 29, "n": 21590, "positives": 2670}}
+agri {"nn_pair": {"accuracy": 0.9861, "precision": 0.5152, "recall": 0.6538, "f1": 0.5763, "tp": 51, "tn": 5269, "fp": 48, "fn": 27, "n": 5395, "positives": 78}, "nn_pair_noisy_latent": {"accuracy": 0.9868, "precision": 0.5376, "recall": 0.641, "f1": 0.5848, "tp": 50, "tn": 5274, "fp": 43, "fn": 28, "n": 5395, "positives": 78}, "rule_based": {"accuracy": 0.9744, "precision": 0.3598, "recall": 0.9872, "f1": 0.5274, "tp": 77, "tn": 5180, "fp": 137, "fn": 1, "n": 5395, "positives": 78}}
+env {"nn_pair": {"accuracy": 0.994, "precision": 0.9789, "recall": 0.9838, "f1": 0.9813, "tp": 2550, "tn": 13548, "fp": 55, "fn": 42, "n": 16195, "positives": 2592}, "nn_pair_noisy_latent": {"accuracy": 0.9941, "precision": 0.9789, "recall": 0.9842, "f1": 0.9815, "tp": 2551, "tn": 13548, "fp": 55, "fn": 41, "n": 16195, "positives": 2592}, "rule_based": {"accuracy": 0.9971, "precision": 0.9926, "recall": 0.9892, "f1": 0.9909, "tp": 2564, "tn": 13584, "fp": 19, "fn": 28, "n": 16195, "positives": 2592}}
+recon MSE (test, normalised inputs): 0.03096
+/home/hatch/v2env/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/hatch/v2env/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/hatch/workspace/edge-apps-prep/semantic_encoder/train_semantic.py:295: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+  torch.onnx.export(enc, example, onnx_path, opset_version=14,
+W1118 20:27:42.701000 13495 torch/onnx/_internal/exporter/_compat.py:133] Setting ONNX exporter to use operator set version 18 because the requested opset_version 14 is a lower version than we have implementations for. Automatic version conversion will be performed, which may not be successful at converting to the requested version. If version conversion is unsuccessful, the opset version of the exported model will be kept at 18. Please consider setting opset_version >=18 to leverage latest ONNX features
+W1118 20:27:43.937000 13495 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::nms
+W1118 20:27:43.938000 13495 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::roi_align
+W1118 20:27:43.938000 13495 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::roi_pool
+W1118 20:27:43.939000 13495 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::deform_conv2d
+The model version conversion is not supported by the onnxscript version converter and fallback is enabled. The model will be converted using the onnx C API (target version: 14).
+[torch.onnx] Obtain model graph for `SemanticEncoder([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `SemanticEncoder([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... ✅
+{
+  "test_metrics": {
+    "combined": {
+      "nn_pair": {
+        "accuracy": 0.992,
+        "precision": 0.9619,
+        "recall": 0.9742,
+        "f1": 0.968,
+        "tp": 2601,
+        "tn": 18817,
+        "fp": 103,
+        "fn": 69,
+        "n": 21590,
+        "positives": 2670
+      },
+      "nn_pair_noisy_latent": {
+        "accuracy": 0.9923,
+        "precision": 0.9637,
+        "recall": 0.9742,
+        "f1": 0.9689,
+        "tp": 2601,
+        "tn": 18822,
+        "fp": 98,
+        "fn": 69,
+        "n": 21590,
+        "positives": 2670
+      },
+      "rule_based": {
+        "accuracy": 0.9914,
+        "precision": 0.9442,
+        "recall": 0.9891,
+        "f1": 0.9662,
+        "tp": 2641,
+        "tn": 18764,
+        "fp": 156,
+        "fn": 29,
+        "n": 21590,
+        "positives": 2670
+      }
+    },
+    "agri": {
+      "nn_pair": {
+        "accuracy": 0.9861,
+        "precision": 0.5152,
+        "recall": 0.6538,
+        "f1": 0.5763,
+        "tp": 51,
+        "tn": 5269,
+        "fp": 48,
+        "fn": 27,
+        "n": 5395,
+        "positives": 78
+      },
+      "nn_pair_noisy_latent": {
+        "accuracy": 0.9868,
+        "precision": 0.5376,
+        "recall": 0.641,
+        "f1": 0.5848,
+        "tp": 50,
+        "tn": 5274,
+        "fp": 43,
+        "fn": 28,
+        "n": 5395,
+        "positives": 78
+      },
+      "rule_based": {
+        "accuracy": 0.9744,
+        "precision": 0.3598,
+        "recall": 0.9872,
+        "f1": 0.5274,
+        "tp": 77,
+        "tn": 5180,
+        "fp": 137,
+        "fn": 1,
+        "n": 5395,
+        "positives": 78
+      }
+    },
+    "env": {
+      "nn_pair": {
+        "accuracy": 0.994,
+        "precision": 0.9789,
+        "recall": 0.9838,
+        "f1": 0.9813,
+        "tp": 2550,
+        "tn": 13548,
+        "fp": 55,
+        "fn": 42,
+        "n": 16195,
+        "positives": 2592
+      },
+      "nn_pair_noisy_latent": {
+        "accuracy": 0.9941,
+        "precision": 0.9789,
+        "recall": 0.9842,
+        "f1": 0.9815,
+        "tp": 2551,
+        "tn": 13548,
+        "fp": 55,
+        "fn": 41,
+        "n": 16195,
+        "positives": 2592
+      },
+      "rule_based": {
+        "accuracy": 0.9971,
+        "precision": 0.9926,
+        "recall": 0.9892,
+        "f1": 0.9909,
+        "tp": 2564,
+        "tn": 13584,
+        "fp": 19,
+        "fn": 28,
+        "n": 16195,
+        "positives": 2592
+      }
+    }
+  },
+  "thr": 0.7
+}
+DONE in 72.5s
