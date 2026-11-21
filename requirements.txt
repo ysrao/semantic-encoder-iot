@@ -1,0 +1,14 @@
+# Training and evaluation (CPU is enough)
+torch>=2.2
+numpy>=1.24
+pandas>=2.0
+pyyaml>=6.0
+onnx            # the train_*.py scripts export the trained encoder to ONNX
+onnxscript
+# India v1 dataset build from the raw GUARDIAN / INDOFLOODS files
+openpyxl
+# Figures and the animation
+matplotlib>=3.6
+# LiteRT portability check only (litert_check/)
+# ai-edge-litert
+# litert-torch

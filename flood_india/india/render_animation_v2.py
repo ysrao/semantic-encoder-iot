@@ -2,9 +2,10 @@
 Adapted from the v1 script (same scenes, pacing, palette). All numbers are real:
 the window, latent and decoder probability come from the India-trained models run
 on the actual Jainagar (Kamla-Balan, Bihar) CWC gauge window of 20 Jun 2024 —
-see ~/workspace/edge-apps-prep/semantic_encoder/india/animation_window_india.json
+see animation_window_india.json in this folder
 (latent cross-verified by re-running the traced encoder on the dataset window).
 """
+import os
 import json
 
 import matplotlib
@@ -14,7 +15,7 @@ import matplotlib.animation as animation
 import numpy as np
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Rectangle
 
-INDIA = "/home/hatch/workspace/edge-apps-prep/semantic_encoder/india"
+INDIA = os.path.dirname(os.path.abspath(__file__))
 D = json.load(open(f"{INDIA}/animation_window_india.json"))
 SEG_L = np.array(D["segment_levels_m"])                       # 60 hourly levels
 SEG_T = np.arange(len(SEG_L)) / 24.0                          # days 0..2.458

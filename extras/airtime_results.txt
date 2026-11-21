@@ -1,0 +1,67 @@
+{
+ "7": {
+  "learned 8 B": {
+   "toa_ms": 56.6,
+   "frames": 1,
+   "energy_mJ": 8.21
+  },
+  "reference 20 B": {
+   "toa_ms": 71.9,
+   "frames": 1,
+   "energy_mJ": 10.45
+  },
+  "raw 256 B": {
+   "toa_ms": 461.3,
+   "frames": 2,
+   "energy_mJ": 66.98
+  }
+ },
+ "10": {
+  "learned 8 B": {
+   "toa_ms": 370.7,
+   "frames": 1,
+   "energy_mJ": 53.82
+  },
+  "reference 20 B": {
+   "toa_ms": 452.6,
+   "frames": 1,
+   "energy_mJ": 65.72
+  },
+  "raw 256 B": {
+   "toa_ms": 3780.6,
+   "frames": 6,
+   "energy_mJ": 548.94
+  }
+ },
+ "12": {
+  "learned 8 B": {
+   "toa_ms": 1482.8,
+   "frames": 1,
+   "energy_mJ": 215.3
+  },
+  "reference 20 B": {
+   "toa_ms": 1810.4,
+   "frames": 1,
+   "energy_mJ": 262.87
+  },
+  "raw 256 B": {
+   "toa_ms": 15122.4,
+   "frames": 6,
+   "energy_mJ": 2195.78
+  }
+ }
+}
+SF7 flood (1 window / 8 h): learned 0 s/day (0.00 % airtime), raw 1 s/day (0.00 %)
+SF7 outage (1 / 8 s): learned 611 s/day (0.71 % airtime), raw 4982 s/day (5.77 %)
+SF7 metering (1 / 8 min): learned 10 s/day (0.01 % airtime), raw 83 s/day (0.10 %)
+SF7 parking (1 / min): learned 81 s/day (0.09 % airtime), raw 664 s/day (0.77 %)
+SF10 flood (1 window / 8 h): learned 1 s/day (0.00 % airtime), raw 11 s/day (0.01 %)
+SF10 outage (1 / 8 s): learned 4003 s/day (4.63 % airtime), raw 40831 s/day (47.26 %)
+SF10 metering (1 / 8 min): learned 67 s/day (0.08 % airtime), raw 681 s/day (0.79 %)
+SF10 parking (1 / min): learned 534 s/day (0.62 % airtime), raw 5444 s/day (6.30 %)
+SF12 flood (1 window / 8 h): learned 4 s/day (0.01 % airtime), raw 45 s/day (0.05 %)
+SF12 outage (1 / 8 s): learned 16014 s/day (18.53 % airtime), raw 163322 s/day (189.03 %)
+SF12 metering (1 / 8 min): learned 267 s/day (0.31 % airtime), raw 2722 s/day (3.15 %)
+SF12 parking (1 / min): learned 2135 s/day (2.47 % airtime), raw 21776 s/day (25.20 %)
+SF7 metering: reference 0.07 s/day vs learned 10.2 s/day; parking: reference 1.8 s/day vs learned 81 s/day
+SF12 metering: reference 1.67 s/day vs learned 266.9 s/day; parking: reference 44.9 s/day vs learned 2135 s/day

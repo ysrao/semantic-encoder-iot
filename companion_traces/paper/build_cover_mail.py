@@ -1,4 +1,5 @@
 """One-page cover mail to co-authors for the SPACOMM 2027 revision."""
+import os
 from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -64,6 +65,6 @@ para("If you could get comments back by [DATE], that leaves comfortable time for
 para("Warm regards,", space_after=2)
 para("Rao", space_after=0)
 
-out = "/home/hatch/workspace/ntn-eval/paper/Cover_Mail_Coauthors_SPACOMM2027.docx"
+out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Cover_Mail_Coauthors_SPACOMM2027.docx")
 doc.save(out)
 print("saved", out)

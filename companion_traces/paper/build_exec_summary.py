@@ -1,4 +1,5 @@
 """One-page executive summary of the SPACOMM 2027 submission."""
+import os
 from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -82,6 +83,6 @@ para("1) Confirm affiliations as listed above. 2) Decide: submit at 8 pages (2 p
      "assumptions. 4) Submit via the SPACOMM 2027 system before December 28, 2026.",
      space_after=0)
 
-out = "/home/hatch/workspace/ntn-eval/paper/Executive_Summary_SPACOMM2027.docx"
+out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Executive_Summary_SPACOMM2027.docx")
 doc.save(out)
 print("saved", out)

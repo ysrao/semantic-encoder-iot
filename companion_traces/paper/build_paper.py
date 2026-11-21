@@ -12,8 +12,8 @@ from docx.enum.section import WD_SECTION
 from docx.oxml.ns import qn
 import re, os
 
-FIGDIR = "/home/hatch/workspace/ntn-eval/figures"
-OUTDIR = "/home/hatch/workspace/ntn-eval/paper"
+FIGDIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "figures")
+OUTDIR = os.path.dirname(os.path.abspath(__file__))
 os.makedirs(OUTDIR, exist_ok=True)
 
 doc = Document()

@@ -15,38 +15,38 @@ import sys
 import numpy as np
 import torch
 
-BASE = "/home/hatch/workspace/edge-apps-prep"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repository root
 HERE = os.path.join(BASE, "litert_check")
 
 from ai_edge_litert.interpreter import Interpreter  # noqa: E402
 
 APPS = {
     "india": {
-        "enc_pt": f"{BASE}/semantic_encoder/india/semantic_encoder_india_trained.pt",
-        "dec_pt": f"{BASE}/semantic_encoder/india/gateway_decoder_india_trained.pt",
+        "enc_pt": f"{BASE}/flood_india/india/semantic_encoder_india_trained.pt",
+        "dec_pt": f"{BASE}/flood_india/india/gateway_decoder_india_trained.pt",
         "tflite": f"{HERE}/semantic_encoder_india_local.tflite",
-        "npz": f"{BASE}/semantic_encoder/india/dataset_india.npz",
+        "npz": f"{BASE}/flood_india/india/dataset_india.npz",
         "threshold": 0.35,
     },
     "outage": {
-        "enc_pt": f"{BASE}/outage_sim/semantic_encoder_outage_trained.pt",
-        "dec_pt": f"{BASE}/outage_sim/gateway_decoder_outage_trained.pt",
+        "enc_pt": f"{BASE}/outage/semantic_encoder_outage_trained.pt",
+        "dec_pt": f"{BASE}/outage/gateway_decoder_outage_trained.pt",
         "tflite": f"{HERE}/semantic_encoder_outage_local.tflite",
-        "npz": f"{BASE}/outage_sim/dataset_outage.npz",
+        "npz": f"{BASE}/outage/dataset_outage.npz",
         "threshold": 0.95,
     },
     "metering": {
-        "enc_pt": f"{BASE}/metering_sim/semantic_encoder_metering_trained.pt",
-        "dec_pt": f"{BASE}/metering_sim/gateway_decoder_metering_trained.pt",
+        "enc_pt": f"{BASE}/metering/semantic_encoder_metering_trained.pt",
+        "dec_pt": f"{BASE}/metering/gateway_decoder_metering_trained.pt",
         "tflite": f"{HERE}/semantic_encoder_metering_local.tflite",
-        "npz": f"{BASE}/metering_sim/dataset_metering.npz",
+        "npz": f"{BASE}/metering/dataset_metering.npz",
         "threshold": 0.70,
     },
     "parking": {
-        "enc_pt": f"{BASE}/parking_sim/semantic_encoder_parking_trained.pt",
-        "dec_pt": f"{BASE}/parking_sim/gateway_decoder_parking_trained.pt",
+        "enc_pt": f"{BASE}/parking/semantic_encoder_parking_trained.pt",
+        "dec_pt": f"{BASE}/parking/gateway_decoder_parking_trained.pt",
         "tflite": f"{HERE}/semantic_encoder_parking_local.tflite",
-        "npz": f"{BASE}/parking_sim/dataset_parking.npz",
+        "npz": f"{BASE}/parking/dataset_parking.npz",
         "threshold": 0.75,
     },
 }

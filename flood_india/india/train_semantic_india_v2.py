@@ -31,8 +31,9 @@ import torch
 import torch.nn as nn
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-BASE = os.path.dirname(HERE)                       # semantic_encoder/
-sys.path.insert(0, BASE)
+BASE = os.path.dirname(HERE)                       # flood_india/
+ROOT = os.path.dirname(BASE)                       # repository root
+sys.path.insert(0, os.path.join(ROOT, "flood_synthetic"))  # SemanticEncoder
 
 from semantic_encoder import SemanticEncoder, INPUT_DIM, LATENT_DIM  # noqa: E402
 
