@@ -14,7 +14,7 @@ the encoder architecture, training recipe and scoring discipline are identical.
 | Folder | Contents |
 |---|---|
 | `flood_synthetic/` | The pair implementation (`semantic_encoder.py`), flood training on the companion study's synthetic traces (`train_semantic.py`), trained weights, training report |
-| `flood_india/india/` | The real-data flood study: six Indian river stations — water levels from the GUARDIAN dataset (figshare, DOI 10.6084/m9.figshare.27004282), station metadata and danger levels from INDOFLOODS (Zenodo, DOI 10.5281/zenodo.14584654; IIT Delhi). `dataset_india.npz` is the processed training set (train 2020–22 / validation 2023 / test 2024); the 1.3 GB raw download is not mirrored here — fetch it from figshare. See `DATA_PROVENANCE.md` |
+| `flood_india/india/` | The real-data flood study: six Indian river stations — water levels from the GUARDIAN dataset (figshare, DOI 10.6084/m9.figshare.27004282), station metadata and danger levels from INDOFLOODS (Zenodo, DOI 10.5281/zenodo.14584654; IIT Delhi). The GUARDIAN data itself is not mirrored here: fetch the raw download from figshare and run `train_semantic_india.py` to build the processed training set (train 2020–22 / validation 2023 / test 2024). See `DATA_PROVENANCE.md` |
 | `outage/` | Outage detection on synthetic 1 Hz voltage traces (`train_outage.py`), results and training report |
 | `metering/` | Leak detection on synthetic household water traces (`train_metering.py`), results and training report. `run1_tod_context/` archives the first, structurally flawed run (time-of-day channel), kept for transparency |
 | `parking/` | Parking occupancy on synthetic magnetometer traces (`train_parking.py`), results and training report |
