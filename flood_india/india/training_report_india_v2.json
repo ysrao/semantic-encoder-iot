@@ -1,0 +1,398 @@
+{
+  "change_vs_v1": "Gateway decoder conditioned on 6 static per-station catchment attributes from INDOFLOODS metadata (appended to the 8-dim latent at the decoder). Encoder, windows, splits, seed and training protocol identical to v1; windows loaded from v1's dataset_india.npz.",
+  "attributes": {
+    "definition": [
+      "log10(Catchment Area km2) / 5.5",
+      "Area variation (%) / 100",
+      "Danger Level (m) / 100",
+      "Latitude / 40",
+      "Longitude / 100",
+      "1.0 if Reliability == 'Safe' else 0.0"
+    ],
+    "vectors_by_station": {
+      "Jainagar": [
+        0.6047350330998683,
+        0.00583325387,
+        0.6775,
+        0.6645825000000001,
+        0.8614809999999999,
+        1.0
+      ],
+      "Jhanjharpur": [
+        0.6444757444324285,
+        0.1899570744,
+        0.5,
+        0.6558325,
+        0.862594,
+        1.0
+      ],
+      "Benibad": [
+        0.5915828324372524,
+        0.7088445886,
+        0.4868,
+        0.6536325,
+        0.856922,
+        0.0
+      ],
+      "Kallooppara": [
+        0.5177670683814345,
+        0.03661140834,
+        0.06,
+        0.23509000000000002,
+        0.766503,
+        1.0
+      ],
+      "Akhuapada": [
+        0.7274638182970397,
+        0.03473957727,
+        0.1783,
+        0.5228900000000001,
+        0.8627469999999999,
+        1.0
+      ],
+      "Kunavaram": [
+        0.9902421888083212,
+        0.01899758214,
+        0.3924,
+        0.4393275,
+        0.8125,
+        1.0
+      ]
+    },
+    "source": "raw/metadata_indofloods.csv (INDOFLOODS, Zenodo DOI 10.5281/zenodo.14584654, CC BY 4.0)"
+  },
+  "dataset_sizes": {
+    "train": {
+      "n": 8735,
+      "positives": 2068
+    },
+    "val": {
+      "n": 2927,
+      "positives": 318
+    },
+    "test": {
+      "n": 918,
+      "positives": 194
+    }
+  },
+  "model": {
+    "encoder": "SemanticEncoder MLP 64->48->24->8 tanh (unchanged)",
+    "decoder_v2": "GatewayDecoderV2 (8+6)->24->48, task head 48->1, recon head 48->64",
+    "decision_threshold_from_val": 0.44999999999999996,
+    "best_val_f1": 0.8947
+  },
+  "test_metrics_v2": {
+    "overall": {
+      "nn_pair_v2": {
+        "accuracy": 0.9477,
+        "precision": 0.9056,
+        "recall": 0.8402,
+        "f1": 0.8717,
+        "false_alarm_rate": 0.0235,
+        "tp": 163,
+        "tn": 707,
+        "fp": 17,
+        "fn": 31,
+        "n": 918,
+        "positives": 194
+      },
+      "nn_pair_v2_noisy_latent": {
+        "accuracy": 0.9444,
+        "precision": 0.8865,
+        "recall": 0.8454,
+        "f1": 0.8654,
+        "false_alarm_rate": 0.029,
+        "tp": 164,
+        "tn": 703,
+        "fp": 21,
+        "fn": 30,
+        "n": 918,
+        "positives": 194
+      },
+      "rule_based": {
+        "accuracy": 0.9641,
+        "precision": 0.9548,
+        "recall": 0.8711,
+        "f1": 0.9111,
+        "false_alarm_rate": 0.011,
+        "tp": 169,
+        "tn": 716,
+        "fp": 8,
+        "fn": 25,
+        "n": 918,
+        "positives": 194
+      }
+    },
+    "per_station": {
+      "Jainagar": {
+        "nn_pair_v2": {
+          "accuracy": 0.9167,
+          "precision": 0.8222,
+          "recall": 0.8409,
+          "f1": 0.8315,
+          "false_alarm_rate": 0.0588,
+          "tp": 37,
+          "tn": 128,
+          "fp": 8,
+          "fn": 7,
+          "n": 180,
+          "positives": 44
+        },
+        "rule_based": {
+          "accuracy": 0.95,
+          "precision": 0.907,
+          "recall": 0.8864,
+          "f1": 0.8966,
+          "false_alarm_rate": 0.0294,
+          "tp": 39,
+          "tn": 132,
+          "fp": 4,
+          "fn": 5,
+          "n": 180,
+          "positives": 44
+        }
+      },
+      "Jhanjharpur": {
+        "nn_pair_v2": {
+          "accuracy": 0.8889,
+          "precision": 0.8913,
+          "recall": 0.7321,
+          "f1": 0.8039,
+          "false_alarm_rate": 0.0403,
+          "tp": 41,
+          "tn": 119,
+          "fp": 5,
+          "fn": 15,
+          "n": 180,
+          "positives": 56
+        },
+        "rule_based": {
+          "accuracy": 0.9222,
+          "precision": 0.9565,
+          "recall": 0.7857,
+          "f1": 0.8627,
+          "false_alarm_rate": 0.0161,
+          "tp": 44,
+          "tn": 122,
+          "fp": 2,
+          "fn": 12,
+          "n": 180,
+          "positives": 56
+        }
+      },
+      "Benibad": {
+        "nn_pair_v2": {
+          "accuracy": 0.9556,
+          "precision": 0.9434,
+          "recall": 0.9091,
+          "f1": 0.9259,
+          "false_alarm_rate": 0.024,
+          "tp": 50,
+          "tn": 122,
+          "fp": 3,
+          "fn": 5,
+          "n": 180,
+          "positives": 55
+        },
+        "rule_based": {
+          "accuracy": 0.9722,
+          "precision": 0.9808,
+          "recall": 0.9273,
+          "f1": 0.9533,
+          "false_alarm_rate": 0.008,
+          "tp": 51,
+          "tn": 124,
+          "fp": 1,
+          "fn": 4,
+          "n": 180,
+          "positives": 55
+        }
+      },
+      "Kallooppara": {
+        "nn_pair_v2": {
+          "accuracy": 0.9783,
+          "precision": 0.9,
+          "recall": 0.75,
+          "f1": 0.8182,
+          "false_alarm_rate": 0.0058,
+          "tp": 9,
+          "tn": 171,
+          "fp": 1,
+          "fn": 3,
+          "n": 184,
+          "positives": 12
+        },
+        "rule_based": {
+          "accuracy": 0.9783,
+          "precision": 0.9,
+          "recall": 0.75,
+          "f1": 0.8182,
+          "false_alarm_rate": 0.0058,
+          "tp": 9,
+          "tn": 171,
+          "fp": 1,
+          "fn": 3,
+          "n": 184,
+          "positives": 12
+        }
+      },
+      "Akhuapada": {
+        "nn_pair_v2": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "tp": 0,
+          "tn": 13,
+          "fp": 0,
+          "fn": 0,
+          "n": 13,
+          "positives": 0
+        },
+        "rule_based": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "false_alarm_rate": 0.0,
+          "tp": 0,
+          "tn": 13,
+          "fp": 0,
+          "fn": 0,
+          "n": 13,
+          "positives": 0
+        }
+      },
+      "Kunavaram": {
+        "nn_pair_v2": {
+          "accuracy": 0.9945,
+          "precision": 1.0,
+          "recall": 0.963,
+          "f1": 0.9811,
+          "false_alarm_rate": 0.0,
+          "tp": 26,
+          "tn": 154,
+          "fp": 0,
+          "fn": 1,
+          "n": 181,
+          "positives": 27
+        },
+        "rule_based": {
+          "accuracy": 0.9945,
+          "precision": 1.0,
+          "recall": 0.963,
+          "f1": 0.9811,
+          "false_alarm_rate": 0.0,
+          "tp": 26,
+          "tn": 154,
+          "fp": 0,
+          "fn": 1,
+          "n": 181,
+          "positives": 27
+        }
+      }
+    }
+  },
+  "comparison_with_v1": {
+    "overall": {
+      "v2_nn": {
+        "accuracy": 0.9477,
+        "precision": 0.9056,
+        "recall": 0.8402,
+        "f1": 0.8717,
+        "false_alarm_rate": 0.0235,
+        "tp": 163,
+        "tn": 707,
+        "fp": 17,
+        "fn": 31,
+        "n": 918,
+        "positives": 194
+      },
+      "v1_nn": {
+        "accuracy": 0.9455,
+        "precision": 0.8673,
+        "recall": 0.8763,
+        "f1": 0.8718,
+        "false_alarm_rate": 0.0359,
+        "tp": 170,
+        "tn": 698,
+        "fp": 26,
+        "fn": 24,
+        "n": 918,
+        "positives": 194
+      },
+      "rule": {
+        "accuracy": 0.9641,
+        "precision": 0.9548,
+        "recall": 0.8711,
+        "f1": 0.9111,
+        "false_alarm_rate": 0.011,
+        "tp": 169,
+        "tn": 716,
+        "fp": 8,
+        "fn": 25,
+        "n": 918,
+        "positives": 194
+      }
+    },
+    "per_station_f1_nn": {
+      "Jainagar": {
+        "v2": 0.8315,
+        "v1": 0.8081,
+        "v2_precision": 0.8222,
+        "v1_precision": 0.7273,
+        "v2_recall": 0.8409,
+        "v1_recall": 0.9091
+      },
+      "Jhanjharpur": {
+        "v2": 0.8039,
+        "v1": 0.844,
+        "v2_precision": 0.8913,
+        "v1_precision": 0.8679,
+        "v2_recall": 0.7321,
+        "v1_recall": 0.8214
+      },
+      "Benibad": {
+        "v2": 0.9259,
+        "v1": 0.9159,
+        "v2_precision": 0.9434,
+        "v1_precision": 0.9423,
+        "v2_recall": 0.9091,
+        "v1_recall": 0.8909
+      },
+      "Kallooppara": {
+        "v2": 0.8182,
+        "v1": 0.8182,
+        "v2_precision": 0.9,
+        "v1_precision": 0.9,
+        "v2_recall": 0.75,
+        "v1_recall": 0.75
+      },
+      "Akhuapada": {
+        "v2": 0.0,
+        "v1": 0.0,
+        "v2_precision": 0.0,
+        "v1_precision": 0.0,
+        "v2_recall": 0.0,
+        "v1_recall": 0.0
+      },
+      "Kunavaram": {
+        "v2": 0.9811,
+        "v1": 0.9811,
+        "v2_precision": 1.0,
+        "v1_precision": 1.0,
+        "v2_recall": 0.963,
+        "v1_recall": 0.963
+      }
+    }
+  },
+  "recon_mse_test": 0.00621,
+  "payload": "unchanged: 8 int8 latent = 8 bytes over the air; the 6 attributes are station metadata applied at the gateway",
+  "artifacts": {
+    "encoder_traced": "/home/hatch/workspace/edge-apps-prep/semantic_encoder/india/semantic_encoder_india_v2_trained.pt",
+    "encoder_onnx": "/home/hatch/workspace/edge-apps-prep/semantic_encoder/india/semantic_encoder_india_v2_trained.onnx",
+    "decoder_traced": "/home/hatch/workspace/edge-apps-prep/semantic_encoder/india/gateway_decoder_india_v2_trained.pt"
+  },
+  "train_seconds": 17.1
+}

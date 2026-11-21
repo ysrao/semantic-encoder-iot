@@ -1,0 +1,64 @@
+{
+  "v1_counting_period": [
+    "2020-01-01",
+    "2024-07-31"
+  ],
+  "v1_rule": "excursion above danger level on the GUARDIAN hourly series, separated by >72 h below danger",
+  "catalogue_gauges_by_privacy": {
+    "Open": 155
+  },
+  "catalogue_event_years": [
+    1965,
+    2020
+  ],
+  "per_station": {
+    "Jainagar": {
+      "gauge_id": "INDOFLOODS-gauge-118",
+      "privacy": "Restricted",
+      "v1_counted_events_2020_2024": 37,
+      "indofloods_events_total": 0,
+      "indofloods_events_in_v1_period": 0,
+      "indofloods_last_event_start": null
+    },
+    "Jhanjharpur": {
+      "gauge_id": "INDOFLOODS-gauge-119",
+      "privacy": "Restricted",
+      "v1_counted_events_2020_2024": 27,
+      "indofloods_events_total": 0,
+      "indofloods_events_in_v1_period": 0,
+      "indofloods_last_event_start": null
+    },
+    "Benibad": {
+      "gauge_id": "INDOFLOODS-gauge-115",
+      "privacy": "Restricted",
+      "v1_counted_events_2020_2024": 24,
+      "indofloods_events_total": 0,
+      "indofloods_events_in_v1_period": 0,
+      "indofloods_last_event_start": null
+    },
+    "Kallooppara": {
+      "gauge_id": "INDOFLOODS-gauge-427",
+      "privacy": "Open",
+      "v1_counted_events_2020_2024": 15,
+      "indofloods_events_total": 135,
+      "indofloods_events_in_v1_period": 0,
+      "indofloods_last_event_start": "2019-08-08"
+    },
+    "Akhuapada": {
+      "gauge_id": "INDOFLOODS-gauge-694",
+      "privacy": "Open",
+      "v1_counted_events_2020_2024": 11,
+      "indofloods_events_total": 1,
+      "indofloods_events_in_v1_period": 0,
+      "indofloods_last_event_start": "2018-07-23"
+    },
+    "Kunavaram": {
+      "gauge_id": "INDOFLOODS-gauge-31",
+      "privacy": "Open",
+      "v1_counted_events_2020_2024": 8,
+      "indofloods_events_total": 2,
+      "indofloods_events_in_v1_period": 0,
+      "indofloods_last_event_start": "2019-08-07"
+    }
+  }
+}

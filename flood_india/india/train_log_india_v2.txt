@@ -1,0 +1,377 @@
+windows 12580; attribute dim 6; definition ['log10(Catchment Area km2) / 5.5', 'Area variation (%) / 100', 'Danger Level (m) / 100', 'Latitude / 40', 'Longitude / 100', "1.0 if Reliability == 'Safe' else 0.0"]
+train: 8735 windows, 2068 positives
+val: 2927 windows, 318 positives
+test: 918 windows, 194 positives
+encoder params 4496, decoder v2 params 4745
+/home/hatch/workspace/edge-apps-prep/semantic_encoder/india/train_semantic_india_v2.py:150: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  tot += float(loss) * len(idx)
+epoch 0: loss 1.0660 val_f1 0.3089 @thr 0.50
+epoch 1: loss 0.9774 val_f1 0.4143 @thr 0.55
+epoch 2: loss 0.7330 val_f1 0.4702 @thr 0.65
+epoch 3: loss 0.6033 val_f1 0.4978 @thr 0.85
+epoch 4: loss 0.5707 val_f1 0.5389 @thr 0.85
+epoch 5: loss 0.5637 val_f1 0.5706 @thr 0.65
+epoch 6: loss 0.5214 val_f1 0.5960 @thr 0.85
+epoch 7: loss 0.4958 val_f1 0.6531 @thr 0.85
+epoch 8: loss 0.4574 val_f1 0.6981 @thr 0.65
+epoch 9: loss 0.4474 val_f1 0.7368 @thr 0.60
+epoch 10: loss 0.4182 val_f1 0.7741 @thr 0.70
+epoch 11: loss 0.4211 val_f1 0.7947 @thr 0.80
+epoch 12: loss 0.3781 val_f1 0.8128 @thr 0.70
+epoch 13: loss 0.3432 val_f1 0.8241 @thr 0.90
+epoch 14: loss 0.3641 val_f1 0.8470 @thr 0.75
+epoch 15: loss 0.3282 val_f1 0.8562 @thr 0.70
+epoch 16: loss 0.3261 val_f1 0.8291 @thr 0.95
+epoch 17: loss 0.3421 val_f1 0.8589 @thr 0.70
+epoch 18: loss 0.2899 val_f1 0.8671 @thr 0.20
+epoch 19: loss 0.3049 val_f1 0.8673 @thr 0.65
+epoch 20: loss 0.3149 val_f1 0.8746 @thr 0.60
+epoch 21: loss 0.2793 val_f1 0.8815 @thr 0.55
+epoch 22: loss 0.2818 val_f1 0.8807 @thr 0.80
+epoch 23: loss 0.3028 val_f1 0.8758 @thr 0.90
+epoch 24: loss 0.2702 val_f1 0.8871 @thr 0.70
+epoch 25: loss 0.2730 val_f1 0.8871 @thr 0.90
+epoch 26: loss 0.2791 val_f1 0.8843 @thr 0.35
+epoch 27: loss 0.2703 val_f1 0.8903 @thr 0.25
+epoch 28: loss 0.4326 val_f1 0.8806 @thr 0.45
+epoch 29: loss 0.2802 val_f1 0.8845 @thr 0.90
+epoch 30: loss 0.2874 val_f1 0.8795 @thr 0.70
+epoch 31: loss 0.2515 val_f1 0.8907 @thr 0.40
+epoch 32: loss 0.2640 val_f1 0.8882 @thr 0.80
+epoch 33: loss 0.2618 val_f1 0.8941 @thr 0.70
+epoch 34: loss 0.2713 val_f1 0.8868 @thr 0.45
+epoch 35: loss 0.2421 val_f1 0.8917 @thr 0.90
+epoch 36: loss 0.2513 val_f1 0.8942 @thr 0.30
+epoch 37: loss 0.2616 val_f1 0.8947 @thr 0.45
+epoch 38: loss 0.2977 val_f1 0.5918 @thr 0.95
+epoch 39: loss 0.4692 val_f1 0.8858 @thr 0.45
+best val F1 0.8947 @ threshold 0.44999999999999996
+{
+  "overall": {
+    "nn_pair_v2": {
+      "accuracy": 0.9477,
+      "precision": 0.9056,
+      "recall": 0.8402,
+      "f1": 0.8717,
+      "false_alarm_rate": 0.0235,
+      "tp": 163,
+      "tn": 707,
+      "fp": 17,
+      "fn": 31,
+      "n": 918,
+      "positives": 194
+    },
+    "nn_pair_v2_noisy_latent": {
+      "accuracy": 0.9444,
+      "precision": 0.8865,
+      "recall": 0.8454,
+      "f1": 0.8654,
+      "false_alarm_rate": 0.029,
+      "tp": 164,
+      "tn": 703,
+      "fp": 21,
+      "fn": 30,
+      "n": 918,
+      "positives": 194
+    },
+    "rule_based": {
+      "accuracy": 0.9641,
+      "precision": 0.9548,
+      "recall": 0.8711,
+      "f1": 0.9111,
+      "false_alarm_rate": 0.011,
+      "tp": 169,
+      "tn": 716,
+      "fp": 8,
+      "fn": 25,
+      "n": 918,
+      "positives": 194
+    }
+  },
+  "per_station": {
+    "Jainagar": {
+      "nn_pair_v2": {
+        "accuracy": 0.9167,
+        "precision": 0.8222,
+        "recall": 0.8409,
+        "f1": 0.8315,
+        "false_alarm_rate": 0.0588,
+        "tp": 37,
+        "tn": 128,
+        "fp": 8,
+        "fn": 7,
+        "n": 180,
+        "positives": 44
+      },
+      "rule_based": {
+        "accuracy": 0.95,
+        "precision": 0.907,
+        "recall": 0.8864,
+        "f1": 0.8966,
+        "false_alarm_rate": 0.0294,
+        "tp": 39,
+        "tn": 132,
+        "fp": 4,
+        "fn": 5,
+        "n": 180,
+        "positives": 44
+      }
+    },
+    "Jhanjharpur": {
+      "nn_pair_v2": {
+        "accuracy": 0.8889,
+        "precision": 0.8913,
+        "recall": 0.7321,
+        "f1": 0.8039,
+        "false_alarm_rate": 0.0403,
+        "tp": 41,
+        "tn": 119,
+        "fp": 5,
+        "fn": 15,
+        "n": 180,
+        "positives": 56
+      },
+      "rule_based": {
+        "accuracy": 0.9222,
+        "precision": 0.9565,
+        "recall": 0.7857,
+        "f1": 0.8627,
+        "false_alarm_rate": 0.0161,
+        "tp": 44,
+        "tn": 122,
+        "fp": 2,
+        "fn": 12,
+        "n": 180,
+        "positives": 56
+      }
+    },
+    "Benibad": {
+      "nn_pair_v2": {
+        "accuracy": 0.9556,
+        "precision": 0.9434,
+        "recall": 0.9091,
+        "f1": 0.9259,
+        "false_alarm_rate": 0.024,
+        "tp": 50,
+        "tn": 122,
+        "fp": 3,
+        "fn": 5,
+        "n": 180,
+        "positives": 55
+      },
+      "rule_based": {
+        "accuracy": 0.9722,
+        "precision": 0.9808,
+        "recall": 0.9273,
+        "f1": 0.9533,
+        "false_alarm_rate": 0.008,
+        "tp": 51,
+        "tn": 124,
+        "fp": 1,
+        "fn": 4,
+        "n": 180,
+        "positives": 55
+      }
+    },
+    "Kallooppara": {
+      "nn_pair_v2": {
+        "accuracy": 0.9783,
+        "precision": 0.9,
+        "recall": 0.75,
+        "f1": 0.8182,
+        "false_alarm_rate": 0.0058,
+        "tp": 9,
+        "tn": 171,
+        "fp": 1,
+        "fn": 3,
+        "n": 184,
+        "positives": 12
+      },
+      "rule_based": {
+        "accuracy": 0.9783,
+        "precision": 0.9,
+        "recall": 0.75,
+        "f1": 0.8182,
+        "false_alarm_rate": 0.0058,
+        "tp": 9,
+        "tn": 171,
+        "fp": 1,
+        "fn": 3,
+        "n": 184,
+        "positives": 12
+      }
+    },
+    "Akhuapada": {
+      "nn_pair_v2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_alarm_rate": 0.0,
+        "tp": 0,
+        "tn": 13,
+        "fp": 0,
+        "fn": 0,
+        "n": 13,
+        "positives": 0
+      },
+      "rule_based": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_alarm_rate": 0.0,
+        "tp": 0,
+        "tn": 13,
+        "fp": 0,
+        "fn": 0,
+        "n": 13,
+        "positives": 0
+      }
+    },
+    "Kunavaram": {
+      "nn_pair_v2": {
+        "accuracy": 0.9945,
+        "precision": 1.0,
+        "recall": 0.963,
+        "f1": 0.9811,
+        "false_alarm_rate": 0.0,
+        "tp": 26,
+        "tn": 154,
+        "fp": 0,
+        "fn": 1,
+        "n": 181,
+        "positives": 27
+      },
+      "rule_based": {
+        "accuracy": 0.9945,
+        "precision": 1.0,
+        "recall": 0.963,
+        "f1": 0.9811,
+        "false_alarm_rate": 0.0,
+        "tp": 26,
+        "tn": 154,
+        "fp": 0,
+        "fn": 1,
+        "n": 181,
+        "positives": 27
+      }
+    }
+  }
+}
+recon MSE (test): 0.00621
+{
+  "overall": {
+    "v2_nn": {
+      "accuracy": 0.9477,
+      "precision": 0.9056,
+      "recall": 0.8402,
+      "f1": 0.8717,
+      "false_alarm_rate": 0.0235,
+      "tp": 163,
+      "tn": 707,
+      "fp": 17,
+      "fn": 31,
+      "n": 918,
+      "positives": 194
+    },
+    "v1_nn": {
+      "accuracy": 0.9455,
+      "precision": 0.8673,
+      "recall": 0.8763,
+      "f1": 0.8718,
+      "false_alarm_rate": 0.0359,
+      "tp": 170,
+      "tn": 698,
+      "fp": 26,
+      "fn": 24,
+      "n": 918,
+      "positives": 194
+    },
+    "rule": {
+      "accuracy": 0.9641,
+      "precision": 0.9548,
+      "recall": 0.8711,
+      "f1": 0.9111,
+      "false_alarm_rate": 0.011,
+      "tp": 169,
+      "tn": 716,
+      "fp": 8,
+      "fn": 25,
+      "n": 918,
+      "positives": 194
+    }
+  },
+  "per_station_f1_nn": {
+    "Jainagar": {
+      "v2": 0.8315,
+      "v1": 0.8081,
+      "v2_precision": 0.8222,
+      "v1_precision": 0.7273,
+      "v2_recall": 0.8409,
+      "v1_recall": 0.9091
+    },
+    "Jhanjharpur": {
+      "v2": 0.8039,
+      "v1": 0.844,
+      "v2_precision": 0.8913,
+      "v1_precision": 0.8679,
+      "v2_recall": 0.7321,
+      "v1_recall": 0.8214
+    },
+    "Benibad": {
+      "v2": 0.9259,
+      "v1": 0.9159,
+      "v2_precision": 0.9434,
+      "v1_precision": 0.9423,
+      "v2_recall": 0.9091,
+      "v1_recall": 0.8909
+    },
+    "Kallooppara": {
+      "v2": 0.8182,
+      "v1": 0.8182,
+      "v2_precision": 0.9,
+      "v1_precision": 0.9,
+      "v2_recall": 0.75,
+      "v1_recall": 0.75
+    },
+    "Akhuapada": {
+      "v2": 0.0,
+      "v1": 0.0,
+      "v2_precision": 0.0,
+      "v1_precision": 0.0,
+      "v2_recall": 0.0,
+      "v1_recall": 0.0
+    },
+    "Kunavaram": {
+      "v2": 0.9811,
+      "v1": 0.9811,
+      "v2_precision": 1.0,
+      "v1_precision": 1.0,
+      "v2_recall": 0.963,
+      "v1_recall": 0.963
+    }
+  }
+}
+/home/hatch/v2env/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/hatch/v2env/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/hatch/workspace/edge-apps-prep/semantic_encoder/india/train_semantic_india_v2.py:238: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+  torch.onnx.export(enc, example, onnx_path, opset_version=14,
+W1120 01:15:27.438000 15024 torch/onnx/_internal/exporter/_compat.py:133] Setting ONNX exporter to use operator set version 18 because the requested opset_version 14 is a lower version than we have implementations for. Automatic version conversion will be performed, which may not be successful at converting to the requested version. If version conversion is unsuccessful, the opset version of the exported model will be kept at 18. Please consider setting opset_version >=18 to leverage latest ONNX features
+W1120 01:15:28.159000 15024 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::nms
+W1120 01:15:28.161000 15024 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::roi_align
+W1120 01:15:28.161000 15024 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::roi_pool
+W1120 01:15:28.161000 15024 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::deform_conv2d
+The model version conversion is not supported by the onnxscript version converter and fallback is enabled. The model will be converted using the onnx C API (target version: 14).
+[torch.onnx] Obtain model graph for `SemanticEncoder([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `SemanticEncoder([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... ✅
+DONE in 17.1s

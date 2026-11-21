@@ -1,0 +1,240 @@
+{
+  "source": "raw/metadata_indofloods.csv (INDOFLOODS, Zenodo DOI 10.5281/zenodo.14584654, CC BY 4.0)",
+  "catchment_columns_identified": [
+    "Source Catchment Area",
+    "Catchment Area",
+    "Area variation (%)",
+    "Reliability"
+  ],
+  "note": "The metadata file's catchment content is limited to catchment area (two estimates), their % variation and a reliability flag; it carries no land-use, soil or elevation attributes. The Zenodo record also lists a separate catchment_characteristics_indofloods.csv, which was not part of the 18 Nov 2026 local download and was not used here.",
+  "attribute_vector_definition": [
+    "log10(Catchment Area km2) / 5.5",
+    "Area variation (%) / 100",
+    "Danger Level (m) / 100",
+    "Latitude / 40",
+    "Longitude / 100",
+    "1.0 if Reliability == 'Safe' else 0.0"
+  ],
+  "station_order_matches_dataset_india_npz": [
+    "Jainagar",
+    "Jhanjharpur",
+    "Benibad",
+    "Kallooppara",
+    "Akhuapada",
+    "Kunavaram"
+  ],
+  "raw": {
+    "Jainagar": {
+      "gauge_id": "INDOFLOODS-gauge-118",
+      "source_catchment_area_km2": 2131.0,
+      "catchment_area_km2": 2118.569336,
+      "area_variation_pct": 0.583325387,
+      "reliability": "Safe",
+      "privacy": "Restricted",
+      "warning_level_m": 66.75,
+      "danger_level_m": 67.75,
+      "latitude": 26.5833,
+      "longitude": 86.1481,
+      "basin": "Ganga - Brahmaputra - Meghna/Barak",
+      "state": "Bihar",
+      "metadata_record_span": [
+        "1970-07-01",
+        "2010-12-31"
+      ],
+      "missing_catchment_values": [],
+      "attribute_vector_v2": [
+        0.6047350330998683,
+        0.00583325387,
+        0.6775,
+        0.6645825000000001,
+        0.8614809999999999,
+        1.0
+      ]
+    },
+    "Jhanjharpur": {
+      "gauge_id": "INDOFLOODS-gauge-119",
+      "source_catchment_area_km2": 2945.0,
+      "catchment_area_km2": 3504.4235840000006,
+      "area_variation_pct": 18.99570744,
+      "reliability": "Safe",
+      "privacy": "Restricted",
+      "warning_level_m": 49.0,
+      "danger_level_m": 50.0,
+      "latitude": 26.2333,
+      "longitude": 86.2594,
+      "basin": "Ganga - Brahmaputra - Meghna/Barak",
+      "state": "Bihar",
+      "metadata_record_span": [
+        "1970-01-01",
+        "2010-12-31"
+      ],
+      "missing_catchment_values": [],
+      "attribute_vector_v2": [
+        0.6444757444324285,
+        0.1899570744,
+        0.5,
+        0.6558325,
+        0.862594,
+        1.0
+      ]
+    },
+    "Benibad": {
+      "gauge_id": "INDOFLOODS-gauge-115",
+      "source_catchment_area_km2": 6160.0,
+      "catchment_area_km2": 1793.517334,
+      "area_variation_pct": 70.88445886,
+      "reliability": "Caution",
+      "privacy": "Restricted",
+      "warning_level_m": 47.68,
+      "danger_level_m": 48.68,
+      "latitude": 26.1453,
+      "longitude": 85.6922,
+      "basin": "Ganga - Brahmaputra - Meghna/Barak",
+      "state": "Bihar",
+      "metadata_record_span": [
+        "1985-04-01",
+        "2010-12-30"
+      ],
+      "missing_catchment_values": [],
+      "attribute_vector_v2": [
+        0.5915828324372524,
+        0.7088445886,
+        0.4868,
+        0.6536325,
+        0.856922,
+        0.0
+      ]
+    },
+    "Kallooppara": {
+      "gauge_id": "INDOFLOODS-gauge-427",
+      "source_catchment_area_km2": 731.0,
+      "catchment_area_km2": 704.2370605000001,
+      "area_variation_pct": 3.661140834,
+      "reliability": "Safe",
+      "privacy": "Open",
+      "warning_level_m": 5.0,
+      "danger_level_m": 6.0,
+      "latitude": 9.4036,
+      "longitude": 76.6503,
+      "basin": "West Flowing Rivers From Tadri to Kanyakumari",
+      "state": "Kerala",
+      "metadata_record_span": [
+        "1985-06-19",
+        "2020-05-27"
+      ],
+      "missing_catchment_values": [],
+      "attribute_vector_v2": [
+        0.5177670683814345,
+        0.03661140834,
+        0.06,
+        0.23509000000000002,
+        0.766503,
+        1.0
+      ]
+    },
+    "Akhuapada": {
+      "gauge_id": "INDOFLOODS-gauge-694",
+      "source_catchment_area_km2": 10385.0,
+      "catchment_area_km2": 10024.22949,
+      "area_variation_pct": 3.473957727,
+      "reliability": "Safe",
+      "privacy": "Open",
+      "warning_level_m": 17.83,
+      "danger_level_m": 17.83,
+      "latitude": 20.9156,
+      "longitude": 86.2747,
+      "basin": " Brahmni - Baitarni",
+      "state": "Odisha",
+      "metadata_record_span": [
+        "2018-01-01",
+        "2020-05-27"
+      ],
+      "missing_catchment_values": [],
+      "attribute_vector_v2": [
+        0.7274638182970397,
+        0.03473957727,
+        0.1783,
+        0.5228900000000001,
+        0.8627469999999999,
+        1.0
+      ]
+    },
+    "Kunavaram": {
+      "gauge_id": "INDOFLOODS-gauge-31",
+      "source_catchment_area_km2": 284880.0,
+      "catchment_area_km2": 279467.9688,
+      "area_variation_pct": 1.899758214,
+      "reliability": "Safe",
+      "privacy": "Open",
+      "warning_level_m": 37.74,
+      "danger_level_m": 39.24,
+      "latitude": 17.5731,
+      "longitude": 81.25,
+      "basin": "Godavari",
+      "state": "Andhra Pradesh",
+      "metadata_record_span": [
+        "2018-01-01",
+        "2020-05-27"
+      ],
+      "missing_catchment_values": [],
+      "attribute_vector_v2": [
+        0.9902421888083212,
+        0.01899758214,
+        0.3924,
+        0.4393275,
+        0.8125,
+        1.0
+      ]
+    }
+  },
+  "vectors": {
+    "Jainagar": [
+      0.6047350330998683,
+      0.00583325387,
+      0.6775,
+      0.6645825000000001,
+      0.8614809999999999,
+      1.0
+    ],
+    "Jhanjharpur": [
+      0.6444757444324285,
+      0.1899570744,
+      0.5,
+      0.6558325,
+      0.862594,
+      1.0
+    ],
+    "Benibad": [
+      0.5915828324372524,
+      0.7088445886,
+      0.4868,
+      0.6536325,
+      0.856922,
+      0.0
+    ],
+    "Kallooppara": [
+      0.5177670683814345,
+      0.03661140834,
+      0.06,
+      0.23509000000000002,
+      0.766503,
+      1.0
+    ],
+    "Akhuapada": [
+      0.7274638182970397,
+      0.03473957727,
+      0.1783,
+      0.5228900000000001,
+      0.8627469999999999,
+      1.0
+    ],
+    "Kunavaram": [
+      0.9902421888083212,
+      0.01899758214,
+      0.3924,
+      0.4393275,
+      0.8125,
+      1.0
+    ]
+  }
+}

@@ -1,0 +1,366 @@
+building dataset from CWC/GUARDIAN series...
+Jainagar: raw 19578, spikes 2, valid hours 30754/40176, episodes 41, windows 2088 (pos 743)
+Jhanjharpur: raw 19113, spikes 5, valid hours 30962/40176, episodes 34, windows 2008 (pos 572)
+Benibad: raw 19131, spikes 2, valid hours 31053/40176, episodes 28, windows 2008 (pos 940)
+Kallooppara: raw 24128, spikes 2, valid hours 32376/40176, episodes 18, windows 2730 (pos 87)
+Akhuapada: raw 18088, spikes 1, valid hours 28862/40176, episodes 12, windows 1857 (pos 90)
+Kunavaram: raw 18127, spikes 4, valid hours 27990/40176, episodes 7, windows 1889 (pos 148)
+{
+  "train": {
+    "n": 8735,
+    "positives": 2068,
+    "per_station": {
+      "Jainagar": {
+        "n": 1451,
+        "positives": 623
+      },
+      "Jhanjharpur": {
+        "n": 1371,
+        "positives": 452
+      },
+      "Benibad": {
+        "n": 1371,
+        "positives": 765
+      },
+      "Kallooppara": {
+        "n": 1905,
+        "positives": 54
+      },
+      "Akhuapada": {
+        "n": 1386,
+        "positives": 69
+      },
+      "Kunavaram": {
+        "n": 1251,
+        "positives": 105
+      }
+    }
+  },
+  "val": {
+    "n": 2927,
+    "positives": 318,
+    "per_station": {
+      "Jainagar": {
+        "n": 457,
+        "positives": 76
+      },
+      "Jhanjharpur": {
+        "n": 457,
+        "positives": 64
+      },
+      "Benibad": {
+        "n": 457,
+        "positives": 120
+      },
+      "Kallooppara": {
+        "n": 641,
+        "positives": 21
+      },
+      "Akhuapada": {
+        "n": 458,
+        "positives": 21
+      },
+      "Kunavaram": {
+        "n": 457,
+        "positives": 16
+      }
+    }
+  },
+  "test": {
+    "n": 918,
+    "positives": 194,
+    "per_station": {
+      "Jainagar": {
+        "n": 180,
+        "positives": 44
+      },
+      "Jhanjharpur": {
+        "n": 180,
+        "positives": 56
+      },
+      "Benibad": {
+        "n": 180,
+        "positives": 55
+      },
+      "Kallooppara": {
+        "n": 184,
+        "positives": 12
+      },
+      "Akhuapada": {
+        "n": 13,
+        "positives": 0
+      },
+      "Kunavaram": {
+        "n": 181,
+        "positives": 27
+      }
+    }
+  }
+}
+encoder params 4496, decoder params 4601
+/home/hatch/workspace/edge-apps-prep/semantic_encoder/india/train_semantic_india.py:365: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  tot += float(loss) * len(idx)
+epoch 0: loss 1.0725 val_f1 0.3121 @thr 0.50
+epoch 1: loss 0.9689 val_f1 0.4630 @thr 0.55
+epoch 2: loss 0.7149 val_f1 0.5000 @thr 0.80
+epoch 3: loss 0.6291 val_f1 0.5173 @thr 0.55
+epoch 4: loss 0.5704 val_f1 0.5906 @thr 0.70
+epoch 5: loss 0.5178 val_f1 0.6677 @thr 0.90
+epoch 6: loss 0.5188 val_f1 0.7195 @thr 0.50
+epoch 7: loss 0.4457 val_f1 0.7840 @thr 0.55
+epoch 8: loss 0.4246 val_f1 0.8210 @thr 0.65
+epoch 9: loss 0.3908 val_f1 0.8471 @thr 0.90
+epoch 10: loss 0.3504 val_f1 0.8585 @thr 0.80
+epoch 11: loss 0.3313 val_f1 0.8879 @thr 0.50
+epoch 12: loss 0.3379 val_f1 0.8906 @thr 0.90
+epoch 13: loss 0.4001 val_f1 0.8614 @thr 0.80
+epoch 14: loss 0.3308 val_f1 0.8841 @thr 0.90
+epoch 15: loss 0.3081 val_f1 0.8819 @thr 0.65
+epoch 16: loss 0.3015 val_f1 0.8920 @thr 0.35
+epoch 17: loss 0.3156 val_f1 0.8865 @thr 0.75
+epoch 18: loss 0.2760 val_f1 0.8836 @thr 0.60
+epoch 19: loss 0.2949 val_f1 0.8839 @thr 0.50
+epoch 20: loss 0.3242 val_f1 0.8869 @thr 0.30
+epoch 21: loss 0.3034 val_f1 0.8851 @thr 0.90
+epoch 22: loss 0.3844 val_f1 0.8850 @thr 0.75
+epoch 23: loss 0.2732 val_f1 0.8865 @thr 0.75
+epoch 24: loss 0.2530 val_f1 0.8847 @thr 0.90
+early stop
+best val F1 0.8920 @ threshold 0.35
+{
+  "overall": {
+    "nn_pair": {
+      "accuracy": 0.9455,
+      "precision": 0.8673,
+      "recall": 0.8763,
+      "f1": 0.8718,
+      "false_alarm_rate": 0.0359,
+      "tp": 170,
+      "tn": 698,
+      "fp": 26,
+      "fn": 24,
+      "n": 918,
+      "positives": 194
+    },
+    "nn_pair_noisy_latent": {
+      "accuracy": 0.927,
+      "precision": 0.8068,
+      "recall": 0.8608,
+      "f1": 0.8329,
+      "false_alarm_rate": 0.0552,
+      "tp": 167,
+      "tn": 684,
+      "fp": 40,
+      "fn": 27,
+      "n": 918,
+      "positives": 194
+    },
+    "rule_based": {
+      "accuracy": 0.9641,
+      "precision": 0.9548,
+      "recall": 0.8711,
+      "f1": 0.9111,
+      "false_alarm_rate": 0.011,
+      "tp": 169,
+      "tn": 716,
+      "fp": 8,
+      "fn": 25,
+      "n": 918,
+      "positives": 194
+    }
+  },
+  "per_station": {
+    "Jainagar": {
+      "nn_pair": {
+        "accuracy": 0.8944,
+        "precision": 0.7273,
+        "recall": 0.9091,
+        "f1": 0.8081,
+        "false_alarm_rate": 0.1103,
+        "tp": 40,
+        "tn": 121,
+        "fp": 15,
+        "fn": 4,
+        "n": 180,
+        "positives": 44
+      },
+      "rule_based": {
+        "accuracy": 0.95,
+        "precision": 0.907,
+        "recall": 0.8864,
+        "f1": 0.8966,
+        "false_alarm_rate": 0.0294,
+        "tp": 39,
+        "tn": 132,
+        "fp": 4,
+        "fn": 5,
+        "n": 180,
+        "positives": 44
+      }
+    },
+    "Jhanjharpur": {
+      "nn_pair": {
+        "accuracy": 0.9056,
+        "precision": 0.8679,
+        "recall": 0.8214,
+        "f1": 0.844,
+        "false_alarm_rate": 0.0565,
+        "tp": 46,
+        "tn": 117,
+        "fp": 7,
+        "fn": 10,
+        "n": 180,
+        "positives": 56
+      },
+      "rule_based": {
+        "accuracy": 0.9222,
+        "precision": 0.9565,
+        "recall": 0.7857,
+        "f1": 0.8627,
+        "false_alarm_rate": 0.0161,
+        "tp": 44,
+        "tn": 122,
+        "fp": 2,
+        "fn": 12,
+        "n": 180,
+        "positives": 56
+      }
+    },
+    "Benibad": {
+      "nn_pair": {
+        "accuracy": 0.95,
+        "precision": 0.9423,
+        "recall": 0.8909,
+        "f1": 0.9159,
+        "false_alarm_rate": 0.024,
+        "tp": 49,
+        "tn": 122,
+        "fp": 3,
+        "fn": 6,
+        "n": 180,
+        "positives": 55
+      },
+      "rule_based": {
+        "accuracy": 0.9722,
+        "precision": 0.9808,
+        "recall": 0.9273,
+        "f1": 0.9533,
+        "false_alarm_rate": 0.008,
+        "tp": 51,
+        "tn": 124,
+        "fp": 1,
+        "fn": 4,
+        "n": 180,
+        "positives": 55
+      }
+    },
+    "Kallooppara": {
+      "nn_pair": {
+        "accuracy": 0.9783,
+        "precision": 0.9,
+        "recall": 0.75,
+        "f1": 0.8182,
+        "false_alarm_rate": 0.0058,
+        "tp": 9,
+        "tn": 171,
+        "fp": 1,
+        "fn": 3,
+        "n": 184,
+        "positives": 12
+      },
+      "rule_based": {
+        "accuracy": 0.9783,
+        "precision": 0.9,
+        "recall": 0.75,
+        "f1": 0.8182,
+        "false_alarm_rate": 0.0058,
+        "tp": 9,
+        "tn": 171,
+        "fp": 1,
+        "fn": 3,
+        "n": 184,
+        "positives": 12
+      }
+    },
+    "Akhuapada": {
+      "nn_pair": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_alarm_rate": 0.0,
+        "tp": 0,
+        "tn": 13,
+        "fp": 0,
+        "fn": 0,
+        "n": 13,
+        "positives": 0
+      },
+      "rule_based": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "false_alarm_rate": 0.0,
+        "tp": 0,
+        "tn": 13,
+        "fp": 0,
+        "fn": 0,
+        "n": 13,
+        "positives": 0
+      }
+    },
+    "Kunavaram": {
+      "nn_pair": {
+        "accuracy": 0.9945,
+        "precision": 1.0,
+        "recall": 0.963,
+        "f1": 0.9811,
+        "false_alarm_rate": 0.0,
+        "tp": 26,
+        "tn": 154,
+        "fp": 0,
+        "fn": 1,
+        "n": 181,
+        "positives": 27
+      },
+      "rule_based": {
+        "accuracy": 0.9945,
+        "precision": 1.0,
+        "recall": 0.963,
+        "f1": 0.9811,
+        "false_alarm_rate": 0.0,
+        "tp": 26,
+        "tn": 154,
+        "fp": 0,
+        "fn": 1,
+        "n": 181,
+        "positives": 27
+      }
+    }
+  }
+}
+recon MSE (test): 0.00401
+/home/hatch/v2env/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/hatch/v2env/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/home/hatch/workspace/edge-apps-prep/semantic_encoder/india/train_semantic_india.py:431: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+  torch.onnx.export(enc, example, onnx_path, opset_version=14,
+W1118 22:07:34.017000 8799 torch/onnx/_internal/exporter/_compat.py:133] Setting ONNX exporter to use operator set version 18 because the requested opset_version 14 is a lower version than we have implementations for. Automatic version conversion will be performed, which may not be successful at converting to the requested version. If version conversion is unsuccessful, the opset version of the exported model will be kept at 18. Please consider setting opset_version >=18 to leverage latest ONNX features
+W1118 22:07:34.756000 8799 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::nms
+W1118 22:07:34.757000 8799 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::roi_align
+W1118 22:07:34.758000 8799 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::roi_pool
+W1118 22:07:34.758000 8799 torch/onnx/_internal/exporter/_registration.py:107] torchvision is not installed. Skipping torchvision::deform_conv2d
+The model version conversion is not supported by the onnxscript version converter and fallback is enabled. The model will be converted using the onnx C API (target version: 14).
+[torch.onnx] Obtain model graph for `SemanticEncoder([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `SemanticEncoder([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... ✅
+animation window: {"station": "Jainagar", "split": "test", "window_end_time_ist": "2024-06-20T15:00:00", "decoder_probability": 0.6614, "prediction_nn": 1, "rise_over_window_m": 1.15}
+DONE in 21.7s
