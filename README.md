@@ -37,6 +37,24 @@ paper's Discussion. Each v3 script reads its public record, builds the
 windows, trains the same pair with the same recipe, and writes `results.json`.
 Trained weights are produced by running the scripts (not mirrored here).
 
+### Channel-noise (SNR) sweep (`snr_sweep/`)
+
+Section IV-E of the paper. Both methods are rescored with Gaussian noise added
+to the values each gateway decision is computed from — the pair's eight latent
+values; for the hand-crafted encoders, the report fields their rules threshold
+(for flood, the level's margin above the danger level — the datum-free quantity
+the latch thresholds). SNR is defined against each message's own mean-square
+value; 25 noise draws per point, 30 dB down to 0 dB. `prep_sweep.py` first
+verifies that the clean end reproduces every published F1 exactly (it does —
+all four cases, both methods) and recovers the sweep's inputs; `snr_sweep.py`
+then runs the sweep and writes `snr_results.json` and the figure. Headline:
+the pair degrades gracefully in all four cases; the bare-threshold encoders
+(dust, soil) break early, the storm rule holds to about 15 dB, and the flood
+reference — smoothing, persistence, hysteresis — stays above the pair at every
+SNR. `snr_results_rawlevel_flood.json` keeps an earlier variant that scaled the
+flood noise to the raw gauge level (dominated by the site's altitude); it was
+not used in the paper.
+
 ## Running a study
 
 Each task folder is self-contained: `python train_<task>.py` regenerates the
