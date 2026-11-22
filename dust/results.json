@@ -1,0 +1,33 @@
+{
+ "rule_T": 0.6,
+ "rule_test": {
+  "accuracy": 0.575,
+  "precision": 0.2766,
+  "recall": 1.0,
+  "f1": 0.4333,
+  "tp": 26,
+  "tn": 66,
+  "fp": 68,
+  "fn": 0,
+  "n": 160,
+  "positives": 26
+ },
+ "pair_thr": 0.39999999999999997,
+ "pair_test": {
+  "accuracy": 0.8688,
+  "precision": 0.561,
+  "recall": 0.8846,
+  "f1": 0.6866,
+  "tp": 23,
+  "tn": 116,
+  "fp": 18,
+  "fn": 3,
+  "n": 160,
+  "positives": 26
+ },
+ "counts": {
+  "train": 640,
+  "val": 131,
+  "test": 160
+ }
+}

@@ -26,14 +26,16 @@ the encoder architecture, training recipe and scoring discipline are identical.
 
 ## Version 3 — all-real evaluation
 
-Version 3 of the paper removes the simulations: its four applications are soil
-dry-down (`soil/`), flood on real Indian river data (`flood_india/`), cyclone
-landfall (`storm/`) and monsoon onset (`monsoon/`) — all real public records,
-each compared against a hand-crafted rule encoder on identical windows, with
-chronological splits throughout. The three v3 scripts are self-contained: each
-downloads or reads its public record, builds the windows, trains the same pair
-with the same recipe, and writes `results.json`. Trained weights are produced
-by running the scripts (not mirrored here).
+Version 3 of the paper removes the simulations: its four applications, in the
+paper's order, are soil dry-down (`soil/`), dust storms (`dust/`), cyclone
+landfall (`storm/`) and flood on real Indian river data (`flood/`, trained on
+the windows built by `flood_india/`) — all real public records, each compared
+against a hand-crafted encoder on identical windows, with chronological splits
+throughout and one common training recipe and seed across all four. A fifth
+build, monsoon onset (`monsoon/`), is the boundary experiment reported in the
+paper's Discussion. Each v3 script reads its public record, builds the
+windows, trains the same pair with the same recipe, and writes `results.json`.
+Trained weights are produced by running the scripts (not mirrored here).
 
 ## Running a study
 
