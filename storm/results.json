@@ -1,0 +1,43 @@
+{
+ "rule_D": 300,
+ "rule_test": {
+  "accuracy": 0.7625,
+  "precision": 0.5269,
+  "recall": 0.8462,
+  "f1": 0.6494,
+  "tp": 88,
+  "tn": 217,
+  "fp": 79,
+  "fn": 16,
+  "n": 400,
+  "positives": 104
+ },
+ "pair_thr": 0.6,
+ "pair_test": {
+  "accuracy": 0.72,
+  "precision": 0.4792,
+  "recall": 0.8846,
+  "f1": 0.6216,
+  "tp": 92,
+  "tn": 196,
+  "fp": 100,
+  "fn": 12,
+  "n": 400,
+  "positives": 104
+ },
+ "counts": {
+  "train": 594,
+  "val": 342,
+  "test": 400
+ },
+ "storm_level": {
+  "rule": [
+   26,
+   28
+  ],
+  "pair": [
+   28,
+   28
+  ]
+ }
+}

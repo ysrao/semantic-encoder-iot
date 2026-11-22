@@ -19,65 +19,30 @@ the encoder architecture, training recipe and scoring discipline are identical.
 | `metering/` | Leak detection on synthetic household water traces (`train_metering.py`), results and training report. `run1_tod_context/` archives the first, structurally flawed run (time-of-day channel), kept for transparency |
 | `parking/` | Parking occupancy on synthetic magnetometer traces (`train_parking.py`), results and training report |
 | `companion_traces/` | The companion study's trace generators and rule functions (`ntn_eval` package) — the source of the flood synthetic traces and of the reference (hand-crafted) encoder reported in the paper as reference [1] |
-| `extras/` | Paper v2.0 additions: `robustness.py` (five training seeds, int8-weight encoders, a hand-picked 8-byte baseline; Section IV-F, Table III), `airtime.py` (LoRaWAN time on air and energy; Section V, Table IV), `figure1.py` (Figure 1), and their saved results |
 | `litert_check/` | The LiteRT portability check: all four task encoders converted locally and verified against the reference models (identical int8 codes; decoder decisions agree on all test windows). See `litert_check.md` |
+| `storm/` | **v3, real data:** cyclone landfall within 24 h from IBTrACS North Indian best tracks (`build_storm.py`, `results.json`) |
+| `soil/` | **v3, real data:** soil dry-down crossing within 48 h, ERA5-Land at Indore / Ludhiana / Nagpur via Open-Meteo (`build_soil.py`, `results.json`) |
+| `monsoon/` | **v3, real data:** monsoon onset over Kerala within 5 days; labels are IMD's declared onset dates 2009–2025, predictors ERA5 via Open-Meteo (`build_monsoon.py`, `results.json`) |
+
+## Version 3 — all-real evaluation
+
+Version 3 of the paper removes the simulations: its four applications are soil
+dry-down (`soil/`), flood on real Indian river data (`flood_india/`), cyclone
+landfall (`storm/`) and monsoon onset (`monsoon/`) — all real public records,
+each compared against a hand-crafted rule encoder on identical windows, with
+chronological splits throughout. The three v3 scripts are self-contained: each
+downloads or reads its public record, builds the windows, trains the same pair
+with the same recipe, and writes `results.json`. Trained weights are produced
+by running the scripts (not mirrored here).
 
 ## Running a study
 
-Install the requirements once (Python 3.10 or newer; CPU is enough):
+Each task folder is self-contained: `python train_<task>.py` regenerates the
+traces from fixed seeds, trains the pair jointly (encoder + gateway decoder,
+int8 quantisation in the loop), scores it on held-out traces, and writes its
+results. Splits are always by trace/seed, never by shuffled windows.
 
-```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-Then run each study from the repository root. Each one regenerates its traces
-from fixed seeds, trains the pair jointly (encoder + gateway decoder, int8
-quantisation in the loop), scores it against the reference rule on the same
-held-out windows, and writes its results and trained weights into its folder.
-Splits are always by trace/seed, never by shuffled windows. Each takes seconds.
-
-```bash
-python flood_synthetic/train_semantic.py
-python outage/train_outage.py
-python metering/train_metering.py
-python parking/train_parking.py
-```
-
-The scripts find the shared encoder (`flood_synthetic/semantic_encoder.py`) and
-the companion study's rules (`companion_traces/src/ntn_eval`) by their place in
-the repository, so they run from any working directory.
-
-**India.** The river data is not mirrored here; fetch it from figshare (see
-`flood_india/india/DATA_PROVENANCE.md`) and copy the six station files the
-paper uses (`Jainagar2020_2024_July.xlsx`, `Jhanjharpur2020_2024_July.xlsx`,
-`Benibad2020_2024_July.xlsx`, `KALLOOPPARA2020_2024_July.xlsx`,
-`Akhuapada2020_2024_July.xlsx`, `Kunavaram2020_2024_July.xlsx`) into
-`flood_india/india/stations/`. Then build the windows and train v1, then v2:
-
-```bash
-python flood_india/india/train_semantic_india.py      # writes dataset_india.npz
-python flood_india/india/train_semantic_india_v2.py   # catchment attributes at the decoder
-```
-
-The published v1 weights (`semantic_encoder_india_trained.pt`,
-`gateway_decoder_india_trained.pt`) reproduce the paper's v1 figures exactly on
-that dataset.
-
-**Paper v2.0 checks.** After the runs above (they write the `dataset_*.npz`
-files it reads; India is skipped if its dataset has not been built):
-
-```bash
-python extras/robustness.py      # Table III: 5 seeds, int8 weights, hand-picked 8-byte baseline
-python extras/airtime.py         # Table IV: LoRaWAN time on air and energy
-```
-
-**Reproducibility.** Re-running reproduces every reference-rule figure exactly.
-The learned pair's figures reproduce exactly for outage, parking and flood
-simulation; metering and India v2 differ slightly between machines (metering F1
-0.857 on the original run, 0.864 on an Apple-silicon Mac), a training
-difference that changes no ranking. `extras/robustness.py` reports the spread
-over five training seeds.
+Requirements: Python 3, PyTorch (CPU is sufficient), NumPy.
 
 ## Honest scope
 

@@ -1,0 +1,33 @@
+{
+ "rule_delta": 0.01,
+ "rule_test": {
+  "accuracy": 0.9279,
+  "precision": 0.303,
+  "recall": 0.5263,
+  "f1": 0.3846,
+  "tp": 10,
+  "tn": 402,
+  "fp": 23,
+  "fn": 9,
+  "n": 444,
+  "positives": 19
+ },
+ "pair_thr": 0.65,
+ "pair_test": {
+  "accuracy": 0.7995,
+  "precision": 0.1429,
+  "recall": 0.7368,
+  "f1": 0.2393,
+  "tp": 14,
+  "tn": 341,
+  "fp": 84,
+  "fn": 5,
+  "n": 444,
+  "positives": 19
+ },
+ "counts": {
+  "train": 1749,
+  "val": 482,
+  "test": 444
+ }
+}
